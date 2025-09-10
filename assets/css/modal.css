@@ -1,0 +1,80 @@
+/* stylelint-disable selector-class-pattern */
+.modal {
+  display: none;
+}
+
+.modal.is-open {
+  display: block;
+}
+
+.modal[aria-hidden='false'] .modal__overlay {
+  animation: mm-fade-in 0.2s ease-in;
+}
+
+.modal[aria-hidden='true'] .modal__overlay {
+  animation: mm-fade-out 0.2s ease-in;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-enter-active {
+  opacity: 1;
+  transition: opacity 100ms ease-in;
+}
+
+.modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 60%);
+  z-index: 99;
+  overflow: auto;
+}
+
+.modal__container {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  margin: 50px auto;
+  box-sizing: border-box;
+  min-height: 509px;
+  transition: height 200ms ease-in;
+}
+
+.modal__close {
+  position: fixed;
+  color: #b8c2cc;
+  font-size: 48px;
+  font-weight: bold;
+  top: 12px;
+  right: 24px;
+}
+
+.modal__close::before {
+  content: '\2715';
+}
+
+.modal__content {
+  margin-bottom: 2rem;
+}
+
+@keyframes mm-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mm-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

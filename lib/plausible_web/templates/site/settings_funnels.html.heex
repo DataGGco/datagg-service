@@ -1,0 +1,22 @@
+<.settings_tiles>
+  <.tile
+    docs="funnel-analysis"
+    feature_mod={Plausible.Billing.Feature.Funnels}
+    feature_toggle?={true}
+    current_role={@site_role}
+    current_team={@site_team}
+    site={@site}
+    conn={@conn}
+  >
+    <:title>
+      Funnels
+    </:title>
+    <:subtitle>
+      Compose Goals into Funnels
+    </:subtitle>
+
+    {live_render(@conn, PlausibleWeb.Live.FunnelSettings,
+      session: %{"site_id" => @site.id, "domain" => @site.domain}
+    )}
+  </.tile>
+</.settings_tiles>
